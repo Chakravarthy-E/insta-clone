@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
+import camera from "../../../images/camera.png"
 import icon from "../../../images/icon.png"
-import  camera  from "../../../images/camera.png"
-import {Link} from "react-router-dom"
-
+import { Link } from 'react-router-dom';
 const NewPost = () => {
   const [files, setFiles] = useState(() => {
     const storedFiles = localStorage.getItem('uploadedFiles');
@@ -126,21 +125,21 @@ const NewPost = () => {
         {files.map((file, index) => {
           if (file.type && file.type.startsWith('image/')) {
             return (
-              <div key={index} className="preview-item w-[300px]">
+              <div key={index} className="preview-item w-[300px] mb-4">
                 <img
                   src={URL.createObjectURL(file)}
                   alt={`File ${index}`}
-                  className="preview-image"
+                  className="preview-image rounded-lg"
                 />
-                <div className="preview-details">
-                  <p>Name: {formData.name}</p>
+                <div className="preview-details p-4 bg-white rounded-lg">
+                  <p className="font-bold">Name: {formData.name}</p>
                   <p>Location: {formData.location}</p>
                   <p>Description: {formData.description}</p>
                   <button
                     onClick={() => handleDelete(index)}
-                    className="bg-red-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                    className="bg-green-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mt-4"
                   >
-                    Delete
+                    🗑️
                   </button>
                 </div>
               </div>
@@ -155,9 +154,9 @@ const NewPost = () => {
                   <p>Description: {formData.description}</p>
                   <button
                     onClick={() => handleDelete(index)}
-                    className="bg-red-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                    className="bg-green-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mt-4"
                   >
-                    Delete
+                    🗑️
                   </button>
                 </div>
               </div>
