@@ -2,16 +2,16 @@ import React from "react";
 import { BrowserRouter , Routes, Route } from "react-router-dom";
 import Landing from "../components/landing/Landing";
 import NewPost from "../components/Post/New/NewPost";
+import Allposts from "../components/Post/List/Allposts";
+import NewForm from "../components/Post/New/NewForm";
 const AppRouters = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/postview" element={<NewPost />} />
-       { /*<Route path="post" Component={<PostView />}>
-          <Route path="new" Component={<landingPage />} />
-          <Route path="all" Component={<landingPage />} />
-  </Route> */ }
+          <Route path="/postview/allposts" element={<Allposts />} />
+          <Route path="/postview/newform" element={<NewForm />} />
       </Routes>
     </BrowserRouter>
   );
